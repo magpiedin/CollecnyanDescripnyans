@@ -1,0 +1,61 @@
+---
+title: "Collecnyan Descripnyans"
+output: github_document
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Summary of [100] Collecnyans, Ripe for Santiago Core
+
+* [Chart of Collecnyans per month](#collecnyans-created-per-month)
+* [List of Collections](#list-of-collections)
+    
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+   
+library(zoo)
+library(rgbif) # or library(SPARQL)
+library(ggplot2)
+library(ggcats)
+# library(gganimate)
+
+gbif_id <- Sys.getenv("GBIF_ID") 
+gbif_pw <- Sys.getenv("GBIF_PW")
+
+collections <- organizations(query = "Collection")
+collections$data$created2 <- substr(collections$data$created, 1, 7)
+collections$data$created_mo <- as.yearmon(collections$data$created2)
+collections$data$created_year <- as.Date.POSIXct(collections$data$created_mo)
+# collections$data$created_mo <- as.Date(collections$data$created2, format = "%Y-%m-%d")
+
+coll_counts <- dplyr::count(collections$data, created_mo)
+colnames(coll_counts) <- c("MonthCreated", "Collecnyans")
+
+```
+
+## Collecnyans created per month {#chartsanchor}
+```{r echo=FALSE, fig.asp=1, fig.width = 6.5} 
+
+# Generate graphs 
+
+print(
+  ggplot(coll_counts) +
+    theme_classic() +
+    theme(plot.background = element_rect(fill = "#F5F5DC")) +
+    theme(panel.background = element_rect(fill = "#75E6DA")) + 
+    theme(axis.line = element_line(colour = "dark turquoise")) +
+    geom_cat(aes(MonthCreated, Collecnyans, cat = "nyancat"), size = 2, stat = "identity")
+)
+
+```
+
+## List of Collections {#tableanchor}
+```{r echo=FALSE, warning = FALSE, results = 'asis', tidy = TRUE}
+
+col_names <- collections$data$title
+
+print(knitr::kable(collections$data[,c("title", "country","created", "homepage")]))
+cat("  \n")
+
+```
