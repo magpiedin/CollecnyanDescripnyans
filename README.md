@@ -3,12 +3,23 @@ Collecnyan Descripnyans
 
 ## Summary of \[100\] Collecnyans, Ripe for Santiago Core
 
+…pulled from the GBIF Registry, using the [GBIF Registry
+API](https://www.gbif.org/developer/registry),
+[`rgbif`](https://docs.ropensci.org/rgbif/articles/rgbif.html), and some
+[`ggcats`](https://github.com/R-CoderDotCom/ggcats#ggcats)
+
 -   [Chart of Collecnyans per month](#collecnyans-created-per-month)
 -   [List of Collections](#list-of-collections)
 
+``` r
+library(rgbif) 
+
+collections <- organizations(query = "Collection")
+```
+
 ## Collecnyans created per month
 
-![](Santiago_CD_Nyan_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## List of Collections
 

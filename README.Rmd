@@ -9,33 +9,37 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Summary of [100] Collecnyans, Ripe for Santiago Core
 
+...pulled from the GBIF Registry, using the [GBIF Registry API](https://www.gbif.org/developer/registry),  [`rgbif`](https://docs.ropensci.org/rgbif/articles/rgbif.html), and some [`ggcats`](https://github.com/R-CoderDotCom/ggcats#ggcats)
+
+
 * [Chart of Collecnyans per month](#collecnyans-created-per-month)
 * [List of Collections](#list-of-collections)
     
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
    
 library(zoo)
-library(rgbif) # or library(SPARQL)
 library(ggplot2)
 library(ggcats)
-# library(gganimate)
+```
 
-gbif_id <- Sys.getenv("GBIF_ID") 
-gbif_pw <- Sys.getenv("GBIF_PW")
+```{r echo=TRUE, warning=FALSE, message=FALSE}
+library(rgbif) 
 
 collections <- organizations(query = "Collection")
-collections$data$created2 <- substr(collections$data$created, 1, 7)
-collections$data$created_mo <- as.yearmon(collections$data$created2)
-collections$data$created_year <- as.Date.POSIXct(collections$data$created_mo)
-# collections$data$created_mo <- as.Date(collections$data$created2, format = "%Y-%m-%d")
-
-coll_counts <- dplyr::count(collections$data, created_mo)
-colnames(coll_counts) <- c("MonthCreated", "Collecnyans")
 
 ```
 
 ## Collecnyans created per month {#chartsanchor}
 ```{r echo=FALSE, fig.asp=1, fig.width = 6.5} 
+
+# Prep graphs
+collections$data$created2 <- substr(collections$data$created, 1, 7)
+collections$data$created_mo <- as.yearmon(collections$data$created2)
+collections$data$created_year <- as.Date.POSIXct(collections$data$created_mo)
+
+coll_counts <- dplyr::count(collections$data, created_mo)
+colnames(coll_counts) <- c("MonthCreated", "Collecnyans")
+
 
 # Generate graphs 
 
