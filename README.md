@@ -1,7 +1,7 @@
 Collecnyan Descripnyans
 ================
 
-## Summary of \[100\] Collecnyans, Ripe for Santiago Core
+## Summary of \[100\] Collecnyans
 
 …pulled from the GBIF Registry, using the [GBIF Registry
 API](https://www.gbif.org/developer/registry),
