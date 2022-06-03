@@ -19,7 +19,7 @@ collections <- organizations(query = "Collection")
 
 ## Collecnyans created per month
 
-[]({{ '/assets/collecnyans.png' | relative_url }})
+![collecnyan cats](/assets/collecnyans.png)
 
 
 ## List of Collections
