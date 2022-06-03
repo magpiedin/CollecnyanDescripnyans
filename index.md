@@ -1,9 +1,10 @@
 ---
 title: Collecnyan Descripnyans
-description:
-  A summary of 100 Collections in nyan-cat form.
+description: >
+  A summary of 100 Collections in nyancat form.
+background: https://raw.githubusercontent.com/magpiedin/CollecnyanDescripnyans/gh-pages/assets/collecnyans.png
 permalink: /index/
-toc: true
+toc: false
 ---
 
 ## Summary of \[100\] Collecnyans
