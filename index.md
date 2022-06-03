@@ -1,5 +1,10 @@
-Collecnyan Descripnyans
-================
+---
+title: Collecnyan Descripnyans
+description:
+  A summary of 100 Collections in nyan-cat form.
+permalink: /index/
+toc: true
+---
 
 ## Summary of \[100\] Collecnyans
 
@@ -19,7 +24,7 @@ collections <- organizations(query = "Collection")
 
 ## Collecnyans created per month
 
-![collecnyan cats](/assets/collecnyans.png)
+![collecnyan cats](https://raw.githubusercontent.com/magpiedin/CollecnyanDescripnyans/gh-pages/assets/collecnyans.png)
 
 
 ## List of Collections
