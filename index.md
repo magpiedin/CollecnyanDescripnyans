@@ -19,7 +19,7 @@ collections <- organizations(query = "Collection")
 
 ## Collecnyans created per month
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](https://github.com/magpiedin/CollecnyanDescripnyans/blob/main/README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 ## List of Collections
 
